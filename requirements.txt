@@ -1,0 +1,6 @@
+streamlit
+PyMuPDF
+Pillow
+openai
+requests
+markdown
