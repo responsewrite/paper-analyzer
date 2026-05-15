@@ -39,7 +39,7 @@ API_REGISTRY = {
     }
 }
 
-CONFIG_FILE = "analyzer_config.json"
+CONFIG_FILE = "config/analyzer_config.json"
 UPLOAD_URL = "http://pi.3body.top/paper/upload.php"
 WIZ_URL = "http://wiz.3body.top"
 WIZ_USER = "admin@wiz.cn"
@@ -986,6 +986,9 @@ strong {{ color: #111111; font-weight: 600; }}
 st.set_page_config(page_title="文献AI解析 v1.3.0", page_icon="📄", layout="wide")
 
 def load_config():
+    # 确保 config 文件夹存在
+    os.makedirs(os.path.dirname(CONFIG_FILE), exist_ok=True) 
+    
     if os.path.exists(CONFIG_FILE) and os.path.isfile(CONFIG_FILE):
         with open(CONFIG_FILE, 'r', encoding='utf-8') as f:
             config = json.load(f)
